@@ -57,20 +57,25 @@ axios.get(baseUrlTwitch + process.argv[2], {
 var fs = require('fs');
 var dir = process.argv[2];
 
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
+
+if (!fs.existsSync('downloads')){
+    fs.mkdirSync('downloads');
 }
 
-if (!fs.existsSync(dir + '/ffz')){
-    fs.mkdirSync(dir + '/ffz');
+if (!fs.existsSync('downloads/' + dir)){
+    fs.mkdirSync('downloads/' + dir);
 }
 
-if (!fs.existsSync(dir + '/bttv')){
-    fs.mkdirSync(dir + '/bttv');
+if (!fs.existsSync('downloads/' + dir + '/ffz')){
+    fs.mkdirSync('downloads/' + dir + '/ffz');
 }
 
-if (!fs.existsSync(dir + '/twitch')){
-    fs.mkdirSync(dir + '/twitch');
+if (!fs.existsSync('downloads/' + dir + '/bttv')){
+    fs.mkdirSync('downloads/'+ dir + '/bttv');
+}
+
+if (!fs.existsSync('downloads/' + dir + '/twitch')){
+    fs.mkdirSync('downloads/' + dir + '/twitch');
 }
 
 async function downloadTwitch(id){
@@ -97,7 +102,7 @@ async function downloadEmote (channel, url, name, imageType, thirdparty) {
     }else {
         type = imageType
     }
-    const path = Path.resolve(__dirname, `${channel}/${thirdparty}`, name + type)
+    const path = Path.resolve(__dirname + '/downloads', `${channel}/${thirdparty}`, name + type)
     const writer = Fs.createWriteStream(path)
   
     const response = await axios({
