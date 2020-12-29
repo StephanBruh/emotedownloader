@@ -1,0 +1,9 @@
+{
+  "name": "EmotesDownloader",
+  "version": "1.0.0",
+  "main": "download.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
