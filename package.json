@@ -4,6 +4,6 @@
   "main": "download.js",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.22.0"
+    "axios": "^0.23.0"
   }
 }
